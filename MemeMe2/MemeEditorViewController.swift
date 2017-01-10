@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeEditorViewController.swift
 //  MemeMe2
 //
 //  Created by Eric Wei on 2017-01-10.
@@ -8,17 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let textFieldsDelegate = TextFieldsDelegate()
     var memedImage: UIImage!
-    
-    struct Meme {
-        var topString: String
-        var bottomString: String
-        var origImage: UIImage
-        var memeImage: UIImage
-    }
     
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
@@ -115,6 +108,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func save() {
         let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, origImage: imageView.image!, memeImage: memedImage)
+            
+        //add it to the memes array in the Application Delegate
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     func pick(sourceType: UIImagePickerControllerSourceType) {
