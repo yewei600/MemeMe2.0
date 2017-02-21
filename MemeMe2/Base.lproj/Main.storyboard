@@ -27,11 +27,11 @@
             </objects>
             <point key="canvasLocation" x="-1745" y="492"/>
         </scene>
-        <!--Sent Memes2-->
+        <!--Sent Memes Collection View Controller-->
         <scene sceneID="Xfn-dD-6A0">
             <objects>
-                <collectionViewController id="TEU-0W-SQm" customClass="SentMemesCollectionViewController" customModule="MemeMe2" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="2gH-VC-52r">
+                <collectionViewController id="TEU-0W-SQm" userLabel="Sent Memes Collection View Controller" customClass="SentMemesCollectionViewController" customModule="MemeMe2" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="2gH-VC-52r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -77,7 +77,7 @@
         <!--Sent Memes Table View Controller-->
         <scene sceneID="jdG-v2-vzO">
             <objects>
-                <tableViewController id="hwT-Ju-kRF" userLabel="Sent Memes Table View Controller" sceneMemberID="viewController">
+                <tableViewController id="hwT-Ju-kRF" userLabel="Sent Memes Table View Controller" customClass="SentMemesTableViewController" customModule="MemeMe2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iyw-WG-geb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
