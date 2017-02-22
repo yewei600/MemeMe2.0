@@ -49,7 +49,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         shareButton.isEnabled = imageView.image != nil
-        cancelButton.isEnabled = imageView.image != nil
+        //cancelButton.isEnabled = imageView.image != nil
         self.subscribeToKeyboardNotifications()
     }
     
@@ -151,12 +151,16 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     
-    @IBAction func cancelMemeImage(_ sender: Any) {
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
-        imageView.image = nil
-    }
+//    @IBAction func exitMemeEditor(_ sender: Any) {
+////        topTextField.text = "TOP"
+////        bottomTextField.text = "BOTTOM"
+////        imageView.image = nil
+//        dismiss(animated: true, completion: nil)
+//    }
     
+    @IBAction func exitMemeEditor(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {

@@ -12,30 +12,35 @@ import UIKit
 class SentMemesTableViewController: UITableViewController {
     
     // MARK: Properties
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var memeData: [Meme]!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        memeData = appDelegate.memes
+    }
     
     //Mark: Table View Data Source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.appDelegate.memes.count
+        return memeData.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell")!
-        let meme = self.appDelegate.memes[(indexPath as NSIndexPath).row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableCell")!
+        let meme = memeData[(indexPath as NSIndexPath).row]
         
         //set the top and bottom message
         cell.textLabel?.text = meme.topString
-        cell.imageView?.image = UIImage()
+        cell.imageView?.image = meme.memeImage
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
-        detailController.meme = self.appDelegate.memes[(indexPath as NSIndexPath).row]
+        detailController.meme = memeData[(indexPath as NSIndexPath).row]
         
         self.navigationController!.pushViewController(detailController, animated: true)
         
     }
-
 }
