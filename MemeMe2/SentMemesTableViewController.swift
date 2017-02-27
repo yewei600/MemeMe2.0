@@ -14,10 +14,12 @@ class SentMemesTableViewController: UITableViewController {
     // MARK: Properties
     var memeData: [Meme]!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         memeData = appDelegate.memes
+        
+        tableView.reloadData()
     }
     
     //Mark: Table View Data Source
@@ -26,11 +28,12 @@ class SentMemesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //print("---->cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableCell")!
         let meme = memeData[(indexPath as NSIndexPath).row]
         
         //set the top and bottom message
-        cell.textLabel?.text = meme.topString
+        cell.textLabel?.text = meme.topString + "..." + meme.bottomString
         cell.imageView?.image = meme.memeImage
         
         return cell
